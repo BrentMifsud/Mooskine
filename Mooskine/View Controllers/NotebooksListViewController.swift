@@ -89,21 +89,41 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
 
     /// Adds a new notebook to the end of the `notebooks` array
     func addNotebook(name: String) {
-//		  TODO: add notebook
-//        let notebook = Notebook(name: name)
-//        notebooks.append(notebook)
-        tableView.insertRows(at: [IndexPath(row: numberOfNotebooks - 1, section: 0)], with: .fade)
-        updateEditButtonState()
+        let notebook = Notebook(context: dataController.viewContext)
+		notebook.name = name
+		notebook.creationDate = Date()
+
+		do {
+			try dataController.viewContext.save()
+
+			notebooks.insert(notebook, at: 0)
+
+			tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+
+			updateEditButtonState()
+		} catch {
+			presentErrorAlert(title: "Unable to Add Notebook", message: "The following error occured:\n\(error.localizedDescription)")
+		}
     }
 
     /// Deletes the notebook at the specified index path
     func deleteNotebook(at indexPath: IndexPath) {
-        notebooks.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-        if numberOfNotebooks == 0 {
-            setEditing(false, animated: true)
-        }
-        updateEditButtonState()
+		let notebookToDelete = notebook(at: indexPath)
+
+		dataController.viewContext.delete(notebookToDelete)
+
+		do {
+			try dataController.viewContext.save()
+
+			notebooks.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+			if numberOfNotebooks == 0 {
+				setEditing(false, animated: true)
+			}
+			updateEditButtonState()
+		} catch {
+			presentErrorAlert(title: "Unable to Delete Notebook", message: "The following error occured:\n\(error.localizedDescription)")
+		}
     }
 
     func updateEditButtonState() {
@@ -164,6 +184,7 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
         if let vc = segue.destination as? NotesListViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.notebook = notebook(at: indexPath)
+				vc.dataController = dataController
             }
         }
     }
