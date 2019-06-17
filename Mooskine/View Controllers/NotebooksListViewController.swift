@@ -91,7 +91,6 @@ class NotebooksListViewController: UIViewController, UITableViewDataSource {
     func addNotebook(name: String) {
         let notebook = Notebook(context: dataController.viewContext)
 		notebook.name = name
-		notebook.creationDate = Date()
 
 		do {
 			try dataController.viewContext.save()

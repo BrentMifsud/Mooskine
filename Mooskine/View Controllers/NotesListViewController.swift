@@ -70,8 +70,6 @@ class NotesListViewController: UIViewController, UITableViewDataSource {
     func addNote() {
 
 		let note = Note(context: dataController.viewContext)
-		note.text = "Example: Get Milk"
-		note.creationDate = Date()
 		note.notebook = notebook
 
 		do {

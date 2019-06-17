@@ -21,6 +21,8 @@
 		8442659722B6D9D3002F8508 /* Mooskine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8442659522B6D9D3002F8508 /* Mooskine.xcdatamodeld */; };
 		8442659B22B6E0F7002F8508 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442659A22B6E0F7002F8508 /* DataController.swift */; };
 		8442659D22B6F28C002F8508 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442659C22B6F28C002F8508 /* ViewController+Extensions.swift */; };
+		844265A022B85D51002F8508 /* Notebook+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8442659F22B85D51002F8508 /* Notebook+Extensions.swift */; };
+		844265A222B85D8B002F8508 /* Note+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844265A122B85D8B002F8508 /* Note+Extensions.swift */; };
 		A76557E71F8BC1FB00EFF9B8 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76557E51F8BC1AC00EFF9B8 /* OpenSans-Bold.ttf */; };
 		A76557E81F8BC1FB00EFF9B8 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76557E61F8BC1AC00EFF9B8 /* OpenSans-Regular.ttf */; };
 		A76557E91F8BC1FB00EFF9B8 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76557E41F8BC1AC00EFF9B8 /* OpenSans-Semibold.ttf */; };
@@ -55,6 +57,8 @@
 		8442659622B6D9D3002F8508 /* Mooskine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mooskine.xcdatamodel; sourceTree = "<group>"; };
 		8442659A22B6E0F7002F8508 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		8442659C22B6F28C002F8508 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		8442659F22B85D51002F8508 /* Notebook+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notebook+Extensions.swift"; sourceTree = "<group>"; };
+		844265A122B85D8B002F8508 /* Note+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extensions.swift"; sourceTree = "<group>"; };
 		A76557E41F8BC1AC00EFF9B8 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		A76557E51F8BC1AC00EFF9B8 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		A76557E61F8BC1AC00EFF9B8 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		03B2698C1F2F831700C7433C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8442659E22B85D3F002F8508 /* Managed Object Extensions */,
 				8442659522B6D9D3002F8508 /* Mooskine.xcdatamodeld */,
 				8442659A22B6E0F7002F8508 /* DataController.swift */,
 			);
@@ -183,6 +188,15 @@
 				03B269981F2F837C00C7433C /* Cell.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8442659E22B85D3F002F8508 /* Managed Object Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8442659F22B85D51002F8508 /* Notebook+Extensions.swift */,
+				844265A122B85D8B002F8508 /* Note+Extensions.swift */,
+			);
+			path = "Managed Object Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				039B105C1EDC5469002EA94F /* AppDelegate.swift in Sources */,
+				844265A222B85D8B002F8508 /* Note+Extensions.swift in Sources */,
 				03B2699E1F2F8AAA00C7433C /* NotebookCell.swift in Sources */,
 				8442659722B6D9D3002F8508 /* Mooskine.xcdatamodeld in Sources */,
 				03B2699B1F2F8AA100C7433C /* NotebooksListViewController.swift in Sources */,
@@ -303,6 +318,7 @@
 				03B2699C1F2F8AA100C7433C /* NoteDetailsViewController.swift in Sources */,
 				8442659D22B6F28C002F8508 /* ViewController+Extensions.swift in Sources */,
 				03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */,
+				844265A022B85D51002F8508 /* Notebook+Extensions.swift in Sources */,
 				03B2699D1F2F8AA100C7433C /* NotesListViewController.swift in Sources */,
 				03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */,
 			);
