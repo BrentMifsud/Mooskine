@@ -16,6 +16,8 @@ class DataController {
 		return persistentContainer.viewContext
 	}
 
+	var backgroundContext: NSManagedObjectContext!
+
 	init(modelName: String){
 		persistentContainer = NSPersistentContainer(name: modelName)
 	}
@@ -27,9 +29,20 @@ class DataController {
 			}
 
 			self.autoSaveViewContext()
+			self.configureContext()
 
 			completion?()
 		}
+	}
+
+	func configureContext() {
+		backgroundContext = persistentContainer.newBackgroundContext()
+
+		viewContext.automaticallyMergesChangesFromParent = true
+		backgroundContext.automaticallyMergesChangesFromParent = true
+
+		backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+		viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
 	}
 }
 

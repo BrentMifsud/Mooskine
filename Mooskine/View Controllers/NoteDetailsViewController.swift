@@ -9,7 +9,11 @@
 import UIKit
 
 class NoteDetailsViewController: UIViewController {
-    /// A text view that displays a note's text
+	deinit {
+		removeSaveNotificationObserver()
+	}
+
+	/// A text view that displays a note's text
     @IBOutlet weak var textView: UITextView!
 
     /// The note being displayed and edited
@@ -27,6 +31,8 @@ class NoteDetailsViewController: UIViewController {
 
 	var dataController: DataController!
 
+	var saveObserverToken: Any?
+
 	/// The accessory view used when displaying the keyboard
 	var keyboardToolbar: UIToolbar?
 
@@ -41,6 +47,8 @@ class NoteDetailsViewController: UIViewController {
 		// keyboard toolbar configuration
 		configureToolbarItems()
 		configureTextViewInputAccessoryView()
+
+		addSaveNotificationObserver()
 	}
 
     @IBAction func deleteNote(sender: Any) {

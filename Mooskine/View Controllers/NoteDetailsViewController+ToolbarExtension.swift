@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 // MARK: - Toolbar
 
@@ -77,20 +78,26 @@ extension NoteDetailsViewController {
 	}
 
 	@IBAction func cowTapped(sender: Any) {
+		let backgroundContext: NSManagedObjectContext! = dataController.backgroundContext
+
 		let newText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
-
 		let selectedRange = textView.selectedRange
-
 		let selectedText = textView.attributedText.attributedSubstring(from: selectedRange)
 
-		let cowText = Pathifier.makeMutableAttributedString(for: selectedText, withFont: UIFont(name: "AvenirNext-Heavy", size: 56)!, withPatternImage: #imageLiteral(resourceName: "texture-cow"))
+		let noteID = note.objectID
 
-		newText.replaceCharacters(in: selectedRange, with: cowText)
+		backgroundContext.perform {
+			let backgroundNote = backgroundContext.object(with: noteID) as! Note
 
-		textView.attributedText = newText
-		textView.selectedRange = NSMakeRange(selectedRange.location, 1)
-		note.attributedText = textView.attributedText
-		try? dataController.viewContext.save()
+			let cowText = Pathifier.makeMutableAttributedString(for: selectedText, withFont: UIFont(name: "AvenirNext-Heavy", size: 56)!, withPatternImage: #imageLiteral(resourceName: "texture-cow"))
+
+			newText.replaceCharacters(in: selectedRange, with: cowText)
+
+			sleep(5)
+
+			backgroundNote.attributedText = newText
+			try? backgroundContext.save()
+		}
 	}
 
 	// MARK: Helper methods for actions
@@ -106,5 +113,28 @@ extension NoteDetailsViewController {
 		alert.addAction(cancelAction)
 		alert.addAction(deleteAction)
 		present(alert, animated: true, completion: nil)
+	}
+}
+
+extension NoteDetailsViewController {
+	func addSaveNotificationObserver(){
+		removeSaveNotificationObserver()
+		saveObserverToken = NotificationCenter.default.addObserver(forName: .NSManagedObjectContextObjectsDidChange, object: dataController.viewContext, queue: nil, using: handleSaveNotification(notification:))
+	}
+
+	func removeSaveNotificationObserver(){
+		if let token = saveObserverToken {
+			NotificationCenter.default.removeObserver(token)
+		}
+	}
+
+	fileprivate func reloadText() {
+		textView.attributedText = note.attributedText
+	}
+
+	func handleSaveNotification(notification: Notification) {
+		DispatchQueue.main.async {
+			self.reloadText()
+		}
 	}
 }
