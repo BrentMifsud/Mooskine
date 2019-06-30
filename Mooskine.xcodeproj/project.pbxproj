@@ -18,6 +18,7 @@
 		03B2699E1F2F8AAA00C7433C /* NotebookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B269951F2F837C00C7433C /* NotebookCell.swift */; };
 		03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B269961F2F837C00C7433C /* NoteCell.swift */; };
 		03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B269981F2F837C00C7433C /* Cell.swift */; };
+		841DAA3622C95D8400F39057 /* NoteDetailsViewController+ToolbarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DAA3522C95D8400F39057 /* NoteDetailsViewController+ToolbarExtension.swift */; };
 		8431B8FA22C5AEC6009B8563 /* UpdateToAttributedStrings.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8431B8F922C5AEC6009B8563 /* UpdateToAttributedStrings.xcmappingmodel */; };
 		8431B8FC22C5AF30009B8563 /* UpdateToAttributedStringsPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431B8FB22C5AF30009B8563 /* UpdateToAttributedStringsPolicy.swift */; };
 		8442659722B6D9D3002F8508 /* Mooskine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8442659522B6D9D3002F8508 /* Mooskine.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 		03B269951F2F837C00C7433C /* NotebookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookCell.swift; sourceTree = "<group>"; };
 		03B269961F2F837C00C7433C /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		03B269981F2F837C00C7433C /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		841DAA3522C95D8400F39057 /* NoteDetailsViewController+ToolbarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteDetailsViewController+ToolbarExtension.swift"; sourceTree = "<group>"; };
 		8431B8F822C5A8B7009B8563 /* Mooskine-2019-06-27-attributedStrings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Mooskine-2019-06-27-attributedStrings.xcdatamodel"; sourceTree = "<group>"; };
 		8431B8F922C5AEC6009B8563 /* UpdateToAttributedStrings.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UpdateToAttributedStrings.xcmappingmodel; sourceTree = "<group>"; };
 		8431B8FB22C5AF30009B8563 /* UpdateToAttributedStringsPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateToAttributedStringsPolicy.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				03B269911F2F833D00C7433C /* NoteDetailsViewController.swift */,
 				03B269921F2F833D00C7433C /* NotesListViewController.swift */,
 				8442659C22B6F28C002F8508 /* ViewController+Extensions.swift */,
+				841DAA3522C95D8400F39057 /* NoteDetailsViewController+ToolbarExtension.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				8431B8FA22C5AEC6009B8563 /* UpdateToAttributedStrings.xcmappingmodel in Sources */,
 				03B269A01F2F8AAD00C7433C /* Cell.swift in Sources */,
 				844265A022B85D51002F8508 /* Notebook+Extensions.swift in Sources */,
+				841DAA3622C95D8400F39057 /* NoteDetailsViewController+ToolbarExtension.swift in Sources */,
 				03B2699D1F2F8AA100C7433C /* NotesListViewController.swift in Sources */,
 				03B2699F1F2F8AAA00C7433C /* NoteCell.swift in Sources */,
 			);

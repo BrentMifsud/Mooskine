@@ -27,14 +27,21 @@ class NoteDetailsViewController: UIViewController {
 
 	var dataController: DataController!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	/// The accessory view used when displaying the keyboard
+	var keyboardToolbar: UIToolbar?
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		if let creationDate = note.creationDate {
 			navigationItem.title = dateFormatter.string(from: creationDate)
 		}
-        textView.attributedText = note.attributedText
-    }
+		textView.attributedText = note.attributedText
+
+		// keyboard toolbar configuration
+		configureToolbarItems()
+		configureTextViewInputAccessoryView()
+	}
 
     @IBAction func deleteNote(sender: Any) {
         presentDeleteNotebookAlert()
